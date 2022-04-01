@@ -61,9 +61,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             ),
           ),
           placeholder,
-          SizedBox(
-            width: 0,
-          ),
           Container(
             height: 70,
             child: Row(

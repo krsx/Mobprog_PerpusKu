@@ -17,11 +17,14 @@ class _MainPageState extends State<MainPage> {
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: paddingHorizontal,
-            vertical: paddingHorizontal,
+            vertical: 0,
           ),
           child: ListView(
             physics: BouncingScrollPhysics(),
             children: [
+              SizedBox(
+                height: 30,
+              ),
               RichText(
                 text: TextSpan(
                   children: [
@@ -53,27 +56,42 @@ class _MainPageState extends State<MainPage> {
               SizedBox(
                 height: 10,
               ),
-              RangkumanCard(),
+              RangkumanCard(
+                isFavorite: false,
+              ),
               SizedBox(
                 height: 20,
               ),
-              RangkumanCard(),
+              RangkumanCard(
+                isFavorite: false,
+              ),
               SizedBox(
                 height: 20,
               ),
-              RangkumanCard(),
+              RangkumanCard(
+                isFavorite: false,
+              ),
               SizedBox(
                 height: 20,
               ),
-              RangkumanCard(),
+              RangkumanCard(
+                isFavorite: false,
+              ),
               SizedBox(
                 height: 20,
               ),
-              RangkumanCard(),
+              RangkumanCard(
+                isFavorite: false,
+              ),
               SizedBox(
                 height: 20,
               ),
-              RangkumanCard(),
+              RangkumanCard(
+                isFavorite: false,
+              ),
+              SizedBox(
+                height: 30,
+              ),
             ],
           ),
         ),

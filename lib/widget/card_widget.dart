@@ -3,7 +3,9 @@ import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';
 
 class RangkumanCard extends StatefulWidget {
-  const RangkumanCard({Key? key}) : super(key: key);
+  final bool isFavorite;
+
+  const RangkumanCard({Key? key, required this.isFavorite}) : super(key: key);
 
   @override
   State<RangkumanCard> createState() => _RangkumanCardState();
@@ -42,10 +44,23 @@ class _RangkumanCardState extends State<RangkumanCard> {
                 width: 10,
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        width: 200 - 12,
+                      ),
+                      Icon(
+                        Icons.favorite,
+                        size: 20,
+                        color: widget.isFavorite ? blueColor : whiteColor,
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Interstellar",
@@ -53,33 +68,33 @@ class _RangkumanCardState extends State<RangkumanCard> {
                           fontSize: 14,
                         ),
                       ),
+                      // SizedBox(
+                      //   height: 2,
+                      // ),
+                      Text(
+                        "by Christhoper Nolan",
+                        style: lightTextStyle.copyWith(
+                          fontSize: 14,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Row(
+                        children: [
+                          fiksi,
+                          SizedBox(
+                            width: 4,
+                          ),
+                          petualangan,
+                          SizedBox(
+                            width: 4,
+                          ),
+                          thriller,
+                        ],
+                      )
                     ],
                   ),
-                  // SizedBox(
-                  //   height: 2,
-                  // ),
-                  Text(
-                    "by Christhoper Nolan",
-                    style: lightTextStyle.copyWith(
-                      fontSize: 14,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2,
-                  ),
-                  Row(
-                    children: [
-                      fiksi,
-                      SizedBox(
-                        width: 4,
-                      ),
-                      petualangan,
-                      SizedBox(
-                        width: 4,
-                      ),
-                      thriller,
-                    ],
-                  )
                 ],
               )
             ],

@@ -12,7 +12,78 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("Ini Search Page"),
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: paddingHorizontal,
+          vertical: 0,
+        ),
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Perpus",
+                    style: semiBlackBoldTextStyle.copyWith(
+                      fontSize: 24,
+                    ),
+                  ),
+                  TextSpan(
+                    text: "Ku",
+                    style: semiBlackBoldTextStyle.copyWith(
+                      fontSize: 24,
+                      color: blueColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Pencarianmu",
+              style: semiBlackBoldTextStyle.copyWith(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextField(
+              style: TextStyle(
+                color: greyColor,
+              ),
+              decoration: InputDecoration(
+                fillColor: greyColor,
+                focusColor: greyColor,
+                suffixIcon: Icon(Icons.search),
+                suffixIconColor: greyColor,
+                hintText: "Search",
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: blackColor,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: blackColor,
+                  ),
+                ),
+              ),
+              onChanged: (_) {},
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

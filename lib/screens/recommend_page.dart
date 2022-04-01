@@ -13,7 +13,48 @@ class _RecomendationPageState extends State<RecomendationPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Text("Ini Recomendation Page"),
+        body: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: paddingHorizontal,
+            vertical: 0,
+          ),
+          child: ListView(
+            physics: BouncingScrollPhysics(),
+            children: [
+              SizedBox(
+                height: 30,
+              ),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Perpus",
+                      style: semiBlackBoldTextStyle.copyWith(
+                        fontSize: 24,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "Ku",
+                      style: semiBlackBoldTextStyle.copyWith(
+                        fontSize: 24,
+                        color: blueColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Rekomendasimu",
+                style: semiBlackBoldTextStyle.copyWith(
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
