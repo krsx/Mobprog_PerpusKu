@@ -34,7 +34,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-            height: 60,
+            height: 70,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -43,7 +43,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   icon: Icon(
                     Icons.home,
                     color: whiteColor,
-                    size: 26,
+                    size: 30,
                   ),
                 ),
                 SizedBox(
@@ -54,7 +54,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   icon: Icon(
                     Icons.favorite,
                     color: whiteColor,
-                    size: 26,
+                    size: 30,
                   ),
                 ),
               ],
@@ -65,7 +65,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             width: 0,
           ),
           Container(
-            height: 60,
+            height: 70,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -85,7 +85,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   icon: Icon(
                     Icons.search,
                     color: whiteColor,
-                    size: 26,
+                    size: 30,
                   ),
                 ),
                 SizedBox(
@@ -96,7 +96,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   icon: Icon(
                     Icons.book,
                     color: whiteColor,
-                    size: 26,
+                    size: 30,
                   ),
                 ),
               ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobprog_perpusku/screens/favorite_page.dart';
 import 'package:mobprog_perpusku/screens/main_page.dart';
+import 'package:mobprog_perpusku/screens/recommend_page.dart';
 import 'package:mobprog_perpusku/screens/search_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/dashboard_widget.dart';
@@ -18,6 +19,7 @@ class _RoutePageState extends State<RoutePage> {
     MainPage(),
     FavoritePage(),
     SearchPage(),
+    RecomendationPage(),
   ];
 
   @override
@@ -41,9 +43,12 @@ class _RoutePageState extends State<RoutePage> {
                 //     builder: (context) => TambahRangkumanPage(),
                 //   ),
                 // ),
-                child: Icon(Icons.add),
+                child: Icon(
+                  Icons.add,
+                  size: 30,
+                ),
                 elevation: 0,
-                backgroundColor: blackColor,
+                backgroundColor: blueColor,
                 // shape: Border.all(width: 2, color: whiteColor),
               ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

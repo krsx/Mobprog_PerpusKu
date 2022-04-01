@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+double paddingVertical = 30;
+double paddingHorizontal = 24;
+
 Color blackColor = Color(0xff000000);
 Color whiteColor = Color(0xffFFFFFF);
 Color greyColor = Color(0xff979797);
@@ -20,6 +23,10 @@ TextStyle lightTextStyle = GoogleFonts.poppins(
 );
 TextStyle mediumWhiteTextSTyle = GoogleFonts.poppins(
   color: whiteColor,
+  fontWeight: FontWeight.w500,
+);
+TextStyle mediumBlackTextSTyle = GoogleFonts.poppins(
+  color: blackColor,
   fontWeight: FontWeight.w500,
 );
 TextStyle regularBlackTextSTyle = GoogleFonts.poppins(
