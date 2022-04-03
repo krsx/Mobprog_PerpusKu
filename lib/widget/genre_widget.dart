@@ -3,7 +3,7 @@ import 'package:mobprog_perpusku/theme.dart';
 
 final horror = Container(
   decoration:
-      BoxDecoration(borderRadius: BorderRadius.circular(12), color: blackColor),
+      BoxDecoration(borderRadius: BorderRadius.circular(12), color: blueColor),
   child: Padding(
     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
     child: Text(
@@ -29,13 +29,13 @@ final petualangan = Container(
   ),
 );
 
-final pengenalanDiri = Container(
+final pengembanganDiri = Container(
   decoration:
       BoxDecoration(borderRadius: BorderRadius.circular(12), color: blueColor),
   child: Padding(
     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
     child: Text(
-      "Pengenalan Diri",
+      "Pengembangan Diri",
       style: mediumWhiteTextSTyle.copyWith(
         fontSize: 12,
       ),

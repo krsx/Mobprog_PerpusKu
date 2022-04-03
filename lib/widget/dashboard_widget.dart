@@ -80,7 +80,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                 buildTabItem(
                   index: 2,
                   icon: Icon(
-                    Icons.search,
+                    Icons.book,
                     color: whiteColor,
                     size: 30,
                   ),
@@ -91,7 +91,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                 buildTabItem(
                   index: 3,
                   icon: Icon(
-                    Icons.book,
+                    Icons.search,
                     color: whiteColor,
                     size: 30,
                   ),

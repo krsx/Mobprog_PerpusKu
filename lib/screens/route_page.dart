@@ -3,6 +3,7 @@ import 'package:mobprog_perpusku/screens/favorite_page.dart';
 import 'package:mobprog_perpusku/screens/main_page.dart';
 import 'package:mobprog_perpusku/screens/recommend_page.dart';
 import 'package:mobprog_perpusku/screens/search_page.dart';
+import 'package:mobprog_perpusku/screens/tambah_rangkuman_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/dashboard_widget.dart';
 
@@ -18,8 +19,8 @@ class _RoutePageState extends State<RoutePage> {
   final screens = [
     MainPage(),
     FavoritePage(),
-    SearchPage(),
     RecomendationPage(),
+    SearchPage(),
   ];
 
   @override
@@ -27,7 +28,7 @@ class _RoutePageState extends State<RoutePage> {
     bool keyboardIsOpened = MediaQuery.of(context).viewInsets.bottom != 0.0;
     return SafeArea(
       child: Scaffold(
-        extendBody: false,
+        extendBody: true,
         body: IndexedStack(
           index: selectedIndex,
           children: screens,
@@ -36,7 +37,14 @@ class _RoutePageState extends State<RoutePage> {
         floatingActionButton: keyboardIsOpened
             ? SizedBox()
             : FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TambahRangkuman(),
+                    ),
+                  );
+                },
                 // onPressed: () => Navigator.push(
                 //   context,
                 //   MaterialPageRoute(
