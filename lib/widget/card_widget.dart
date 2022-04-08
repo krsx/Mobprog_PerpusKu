@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobprog_perpusku/screens/rangkuman_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';
 
@@ -15,7 +16,10 @@ class _RangkumanCardState extends State<RangkumanCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => RangkumanPage()));
+      },
       child: Container(
         decoration: BoxDecoration(
           color: whiteColor,

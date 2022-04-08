@@ -130,6 +130,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
               ),
               ElevatedButton(
                 onPressed: () => showDialog(
+                  barrierDismissible: false,
                   context: context,
                   builder: (_) => AlertDialog(
                     shape: RoundedRectangleBorder(
@@ -183,6 +184,35 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                           checkValue: isMisteri,
                           onChecked: (_) {},
                         ),
+                        // SizedBox(
+                        //   height: 20,
+                        // ),
+                        // SizedBox(
+                        //   width: double.infinity,
+                        //   child: ElevatedButton(
+                        //     style: ButtonStyle(
+                        //       backgroundColor:
+                        //           MaterialStateProperty.all(blackColor),
+                        //       elevation: MaterialStateProperty.all(0),
+                        //       shape: MaterialStateProperty.all(
+                        //         RoundedRectangleBorder(
+                        //           borderRadius: BorderRadius.circular(17),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     onPressed: () {},
+                        //     child: Container(
+                        //       padding: EdgeInsets.symmetric(
+                        //         vertical: 6,
+                        //       ),
+                        //       child: Text(
+                        //         "Simpan",
+                        //         style: semiWhiteBoldTextStyle.copyWith(
+                        //             fontSize: 20),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // )
                       ],
                     ),
                   ),
@@ -261,32 +291,62 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
               SizedBox(
                 height: 20,
               ),
-              TextFormField(
-                maxLines: null,
-                style: TextStyle(
-                  color: greyColor,
-                ),
-                decoration: InputDecoration(
-                  fillColor: greyColor,
-                  focusColor: greyColor,
-                  hintStyle: lightTextStyle.copyWith(),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      width: 2,
-                      color: blackColor,
+              SizedBox(
+                // height: 300,
+                child: TextFormField(
+                  maxLines: null,
+                  style: TextStyle(
+                    color: greyColor,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: "Rangkuman",
+                    fillColor: greyColor,
+                    focusColor: greyColor,
+                    hintStyle: lightTextStyle.copyWith(),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: blackColor,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: blackColor,
+                      ),
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      width: 2,
-                      color: blackColor,
-                    ),
-                  ),
+                  onChanged: (_) {},
                 ),
-                onChanged: (_) {},
               ),
+              SizedBox(
+                height: 150,
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(blackColor),
+                  elevation: MaterialStateProperty.all(0),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(17),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 6,
+                  ),
+                  child: Text(
+                    "Simpan",
+                    style: semiWhiteBoldTextStyle.copyWith(
+                      fontSize: 24,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
