@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobprog_perpusku/screens/tambah_rangkuman_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';
 
@@ -37,6 +38,7 @@ class _RangkumanPageState extends State<RangkumanPage> {
                   Spacer(),
                   Icon(
                     Icons.favorite,
+                    size: 26,
                     color: isFavorite ? blueColor : whiteColor,
                   )
                 ],
@@ -75,13 +77,17 @@ class _RangkumanPageState extends State<RangkumanPage> {
                       SizedBox(
                         height: 5,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          romansa,
-                          komedi,
-                          pengembanganDiri,
-                        ],
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 405),
+                        child: Wrap(
+                          spacing: 5,
+                          runSpacing: 5,
+                          children: [
+                            horror,
+                            fiksi,
+                            petualangan,
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: 20,
@@ -196,7 +202,12 @@ class _RangkumanPageState extends State<RangkumanPage> {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TambahRangkuman(),
+                        ),
+                      ),
                       child: Container(
                         padding: EdgeInsets.symmetric(
                           vertical: 12,
@@ -225,7 +236,42 @@ class _RangkumanPageState extends State<RangkumanPage> {
                   ),
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => showDialog(
+                        context: context,
+                        builder: (_) => AlertDialog(
+                          title: Text(
+                            "Hapus Rangkuman?",
+                            style: semiBlackBoldTextStyle,
+                          ),
+                          content: SingleChildScrollView(
+                            child: ListBody(children: [
+                              Text(
+                                "Rangkuman ini akan dihapus secara permanen. Pastikan anda yakin ingin menghapus rangkuman ini.",
+                                style: regularBlackTextSTyle.copyWith(
+                                  fontSize: 12,
+                                ),
+                                textAlign: TextAlign.justify,
+                              ),
+                            ]),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Ya",
+                                style: mediumBlackTextSTyle.copyWith(),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text(
+                                "Tidak",
+                                style: mediumBlackTextSTyle.copyWith(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       child: Container(
                         padding: EdgeInsets.symmetric(
                           vertical: 12,

@@ -28,7 +28,7 @@ class _RoutePageState extends State<RoutePage> {
     bool keyboardIsOpened = MediaQuery.of(context).viewInsets.bottom != 0.0;
     return SafeArea(
       child: Scaffold(
-        extendBody: true,
+        extendBody: false,
         body: IndexedStack(
           index: selectedIndex,
           children: screens,

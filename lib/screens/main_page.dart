@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/card_widget.dart';
+import 'package:mobprog_perpusku/widget/genre_widget.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -57,37 +58,55 @@ class _MainPageState extends State<MainPage> {
                 height: 10,
               ),
               RangkumanCard(
+                judul: "Laskar Pelangi",
+                penulis: "Andrea Hirata",
                 isFavorite: false,
+                genre: [romansa, pengembanganDiri, petualangan],
               ),
               SizedBox(
                 height: 20,
               ),
               RangkumanCard(
+                judul: "Harry Potter",
+                penulis: "JK Rowling",
                 isFavorite: false,
+                genre: [fiksi, horror, petualangan],
               ),
               SizedBox(
                 height: 20,
               ),
               RangkumanCard(
+                judul: "Don Quixote",
+                penulis: "JK Rowling",
                 isFavorite: false,
+                genre: [pengembanganDiri, romansa],
               ),
               SizedBox(
                 height: 20,
               ),
               RangkumanCard(
+                judul: "Interstellar",
+                penulis: "Christopher Nolan",
                 isFavorite: false,
+                genre: [fiksi, thriller, petualangan],
               ),
               SizedBox(
                 height: 20,
               ),
               RangkumanCard(
+                judul: "The Secret History",
+                penulis: "Dona Tart",
                 isFavorite: false,
+                genre: [fiksi, romansa, petualangan],
               ),
               SizedBox(
                 height: 20,
               ),
               RangkumanCard(
+                judul: "Harry Potter",
+                penulis: "JK Rowling",
                 isFavorite: false,
+                genre: [fiksi, horror, petualangan],
               ),
               SizedBox(
                 height: 30,

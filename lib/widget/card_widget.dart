@@ -4,9 +4,18 @@ import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';
 
 class RangkumanCard extends StatefulWidget {
+  final String judul;
+  final String penulis;
   final bool isFavorite;
+  final List<Widget> genre;
 
-  const RangkumanCard({Key? key, required this.isFavorite}) : super(key: key);
+  const RangkumanCard({
+    Key? key,
+    required this.judul,
+    required this.penulis,
+    required this.genre,
+    this.isFavorite = false,
+  }) : super(key: key);
 
   @override
   State<RangkumanCard> createState() => _RangkumanCardState();
@@ -53,7 +62,7 @@ class _RangkumanCardState extends State<RangkumanCard> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       SizedBox(
-                        width: 200 - 12,
+                        width: 200 + 20,
                       ),
                       Icon(
                         Icons.favorite,
@@ -67,7 +76,7 @@ class _RangkumanCardState extends State<RangkumanCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Interstellar",
+                        widget.judul,
                         style: mediumBlackTextSTyle.copyWith(
                           fontSize: 14,
                         ),
@@ -76,7 +85,7 @@ class _RangkumanCardState extends State<RangkumanCard> {
                       //   height: 2,
                       // ),
                       Text(
-                        "by Christhoper Nolan",
+                        widget.penulis,
                         style: lightTextStyle.copyWith(
                           fontSize: 14,
                         ),
@@ -84,18 +93,26 @@ class _RangkumanCardState extends State<RangkumanCard> {
                       SizedBox(
                         height: 2,
                       ),
-                      Row(
-                        children: [
-                          fiksi,
-                          SizedBox(
-                            width: 4,
-                          ),
-                          petualangan,
-                          SizedBox(
-                            width: 4,
-                          ),
-                          thriller,
-                        ],
+                      // Row(
+                      //   children: [
+                      //     fiksi,
+                      //     SizedBox(
+                      //       width: 4,
+                      //     ),
+                      //     petualangan,
+                      //     SizedBox(
+                      //       width: 4,
+                      //     ),
+                      //     thriller,
+                      //   ],
+                      // )
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 220),
+                        child: Wrap(
+                          spacing: 5,
+                          runSpacing: 5,
+                          children: widget.genre,
+                        ),
                       )
                     ],
                   ),

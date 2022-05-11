@@ -299,6 +299,10 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                     color: greyColor,
                   ),
                   decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 10,
+                    ),
                     hintText: "Rangkuman",
                     fillColor: greyColor,
                     focusColor: greyColor,
@@ -322,7 +326,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                 ),
               ),
               SizedBox(
-                height: 150,
+                height: 190,
               ),
               ElevatedButton(
                 style: ButtonStyle(

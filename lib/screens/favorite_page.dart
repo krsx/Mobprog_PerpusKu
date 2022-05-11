@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/card_widget.dart';
 
+import '../widget/genre_widget.dart';
+
 class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);
 
@@ -56,31 +58,46 @@ class _FavoritePageState extends State<FavoritePage> {
               height: 10,
             ),
             RangkumanCard(
+              judul: "Harry Potter",
+              penulis: "JK Rowling",
               isFavorite: true,
+              genre: [fiksi, horror, petualangan],
             ),
             SizedBox(
               height: 20,
             ),
             RangkumanCard(
+              judul: "Harry Potter",
+              penulis: "JK Rowling",
               isFavorite: true,
+              genre: [fiksi, horror, petualangan],
             ),
             SizedBox(
               height: 20,
             ),
             RangkumanCard(
+              judul: "Harry Potter",
+              penulis: "JK Rowling",
               isFavorite: true,
+              genre: [fiksi, horror, petualangan],
             ),
             SizedBox(
               height: 20,
             ),
             RangkumanCard(
+              judul: "Harry Potter",
+              penulis: "JK Rowling",
               isFavorite: true,
+              genre: [fiksi, horror, petualangan],
             ),
             SizedBox(
               height: 20,
             ),
             RangkumanCard(
+              judul: "Harry Potter",
+              penulis: "JK Rowling",
               isFavorite: true,
+              genre: [fiksi, horror, petualangan],
             ),
             SizedBox(
               height: 30,
