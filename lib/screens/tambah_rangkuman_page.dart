@@ -130,7 +130,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
               ),
               ElevatedButton(
                 onPressed: () => showDialog(
-                  barrierDismissible: false,
+                  // barrierDismissible: false,
                   context: context,
                   builder: (_) => AlertDialog(
                     shape: RoundedRectangleBorder(

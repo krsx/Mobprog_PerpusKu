@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mobprog_perpusku/screens/tambah_rangkuman_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
@@ -256,17 +258,40 @@ class _RangkumanPageState extends State<RangkumanPage> {
                           ),
                           actions: [
                             TextButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(blackColor),
+                                textStyle: MaterialStateProperty.all(
+                                  TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: whiteColor,
+                                  ),
+                                ),
+                              ),
                               onPressed: () {},
                               child: Text(
                                 "Ya",
-                                style: mediumBlackTextSTyle.copyWith(),
+                                style: mediumBlackTextSTyle.copyWith(
+                                    color: whiteColor),
                               ),
                             ),
                             TextButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(blueColor),
+                                textStyle: MaterialStateProperty.all(
+                                  TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: whiteColor,
+                                  ),
+                                ),
+                              ),
                               onPressed: () => Navigator.pop(context),
                               child: Text(
                                 "Tidak",
-                                style: mediumBlackTextSTyle.copyWith(),
+                                style: mediumBlackTextSTyle.copyWith(
+                                  color: whiteColor,
+                                ),
                               ),
                             ),
                           ],
