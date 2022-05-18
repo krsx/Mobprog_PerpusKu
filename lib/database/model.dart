@@ -121,7 +121,7 @@ class Rangkuman {
         colJudul: judul,
         colDeskripsi: deskripsi,
         colMediaPath: mediaPath,
-        colHorror: horror ? 1 : 0,
+        colHorror: horror ? 1 : 0, // konversi nilai boolean ke nilai 0 atau 1
         colPetualangan: petualangan ? 1 : 0,
         colPengembanganDiri: pengembanganDiri ? 1 : 0,
         colKomedi: komedi ? 1 : 0,

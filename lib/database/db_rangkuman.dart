@@ -58,7 +58,8 @@ class RangkumanDatabase {
   Future<Rangkuman> createRangkuman(Rangkuman rangkuman) async {
     final db = await instance.database;
     final id = await db.insert(Rangkuman.tblRangkuman, rangkuman.toJson());
-    return rangkuman.copy(id: id);
+    return rangkuman.copy(
+        id: id); // akan dimasukkan nilai id sesuai dengan nilai yang dimasukkan
   }
 
   Future<Rangkuman> readRangkuman(int id) async {
