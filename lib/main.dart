@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobprog_perpusku/screens/introduction_page.dart';
+import 'package:mobprog_perpusku/screens/login.dart';
 import 'package:mobprog_perpusku/screens/welcome_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
 
@@ -44,7 +46,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.blue,
         backgroundColor: whiteColor,
       ),
-      home: WelcomePage(),
+      home: LoginPage(),
     );
   }
 }
