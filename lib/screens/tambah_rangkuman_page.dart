@@ -12,7 +12,6 @@ class TambahRangkuman extends StatefulWidget {
 
 class _TambahRangkumanState extends State<TambahRangkuman> {
   bool isFavorite = false;
-
   bool isHorror = false;
   bool isPetualangan = false;
   bool isPengembanganDiri = false;
@@ -341,7 +340,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                 onPressed: () {},
                 child: Container(
                   padding: EdgeInsets.symmetric(
-                    vertical: 6,
+                    vertical: 10,
                   ),
                   child: Text(
                     "Simpan",

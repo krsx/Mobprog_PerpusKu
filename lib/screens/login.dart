@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobprog_perpusku/screens/register.dart';
 import 'package:mobprog_perpusku/theme.dart';
 
 class LoginPage extends StatefulWidget {
@@ -126,10 +127,57 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       width: 0,
                     ),
-                    TextButton(onPressed: () {}, child: Text("Daftar disini"))
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RegisterPage(),
+                        ),
+                      ),
+                      child: Text(
+                        "Daftar disini",
+                        style: lightTextStyle.copyWith(
+                          color: blueColor,
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        padding: MaterialStateProperty.all(
+                          EdgeInsets.all(0),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 175,
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(blackColor),
+                  elevation: MaterialStateProperty.all(0),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(17),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                child: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Masuk",
+                      style: semiWhiteBoldTextStyle.copyWith(
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -45,7 +45,7 @@ class WelcomePage extends StatelessWidget {
               height: 30,
             ),
             Image.asset(
-              "assets/images/Writing.png",
+              "assets/images/Globe.png",
               fit: BoxFit.cover,
             ),
             SizedBox(
