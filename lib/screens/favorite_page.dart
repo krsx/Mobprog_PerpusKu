@@ -57,48 +57,48 @@ class _FavoritePageState extends State<FavoritePage> {
             SizedBox(
               height: 10,
             ),
-            RangkumanCard(
-              judul: "Harry Potter",
-              penulis: "JK Rowling",
-              isFavorite: true,
-              genre: [fiksi, horror, petualangan],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            RangkumanCard(
-              judul: "Harry Potter",
-              penulis: "JK Rowling",
-              isFavorite: true,
-              genre: [fiksi, horror, petualangan],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            RangkumanCard(
-              judul: "Harry Potter",
-              penulis: "JK Rowling",
-              isFavorite: true,
-              genre: [fiksi, horror, petualangan],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            RangkumanCard(
-              judul: "Harry Potter",
-              penulis: "JK Rowling",
-              isFavorite: true,
-              genre: [fiksi, horror, petualangan],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            RangkumanCard(
-              judul: "Harry Potter",
-              penulis: "JK Rowling",
-              isFavorite: true,
-              genre: [fiksi, horror, petualangan],
-            ),
+            // RangkumanCard(
+            //   judul: "Harry Potter",
+            //   penulis: "JK Rowling",
+            //   isFavorite: true,
+            //   genre: [fiksi, horror, petualangan],
+            // ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            // RangkumanCard(
+            //   judul: "Harry Potter",
+            //   penulis: "JK Rowling",
+            //   isFavorite: true,
+            //   genre: [fiksi, horror, petualangan],
+            // ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            // RangkumanCard(
+            //   judul: "Harry Potter",
+            //   penulis: "JK Rowling",
+            //   isFavorite: true,
+            //   genre: [fiksi, horror, petualangan],
+            // ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            // RangkumanCard(
+            //   judul: "Harry Potter",
+            //   penulis: "JK Rowling",
+            //   isFavorite: true,
+            //   genre: [fiksi, horror, petualangan],
+            // ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            // RangkumanCard(
+            //   judul: "Harry Potter",
+            //   penulis: "JK Rowling",
+            //   isFavorite: true,
+            //   genre: [fiksi, horror, petualangan],
+            // ),
             SizedBox(
               height: 30,
             ),

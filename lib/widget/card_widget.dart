@@ -4,26 +4,67 @@ import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';
 
 class RangkumanCard extends StatefulWidget {
+  // final String judul;
+  // final String penulis;
+  // final bool isFavorite;
+  // final List<Widget> genre;
+
+  final int id;
   final String judul;
   final String penulis;
-  final bool isFavorite;
-  final List<Widget> genre;
+  final String mediaPath;
+  final bool favorite;
 
-  const RangkumanCard({
-    Key? key,
-    required this.judul,
-    required this.penulis,
-    required this.genre,
-    this.isFavorite = false,
-  }) : super(key: key);
+  final bool horror;
+  final bool petualangan;
+  final bool pengembanganDiri;
+  final bool komedi;
+  final bool romansa;
+  final bool fiksi;
+  final bool thriller;
+  final bool misteri;
+
+  const RangkumanCard(
+      {Key? key,
+      required this.id,
+      required this.favorite,
+      required this.judul,
+      required this.penulis,
+      required this.mediaPath,
+      required this.horror,
+      required this.petualangan,
+      required this.pengembanganDiri,
+      required this.komedi,
+      required this.romansa,
+      required this.fiksi,
+      required this.thriller,
+      required this.misteri})
+      : super(key: key);
 
   @override
   State<RangkumanCard> createState() => _RangkumanCardState();
 }
 
 class _RangkumanCardState extends State<RangkumanCard> {
+  List<Widget> genre = [];
+
+  void isiGenre() {
+    genre.clear();
+    genre.add(SizedBox());
+    if (widget.horror) genre.add(horror);
+    if (widget.petualangan) genre.add(petualangan);
+    if (widget.pengembanganDiri) genre.add(pengembanganDiri);
+    if (widget.komedi) genre.add(komedi);
+    if (widget.romansa) genre.add(romansa);
+    if (widget.fiksi) genre.add(fiksi);
+    if (widget.thriller) genre.add(thriller);
+    if (widget.misteri) genre.add(misteri);
+  }
+
   @override
   Widget build(BuildContext context) {
+    isiGenre();
+
     return InkWell(
       onTap: () {
         Navigator.push(
@@ -61,13 +102,11 @@ class _RangkumanCardState extends State<RangkumanCard> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      SizedBox(
-                        width: 200 + 20,
-                      ),
+                      Spacer(),
                       Icon(
                         Icons.favorite,
                         size: 20,
-                        color: widget.isFavorite ? blueColor : whiteColor,
+                        color: widget.favorite ? blueColor : whiteColor,
                       ),
                     ],
                   ),
@@ -106,14 +145,16 @@ class _RangkumanCardState extends State<RangkumanCard> {
                       //     thriller,
                       //   ],
                       // )
-                      ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: 220),
-                        child: Wrap(
-                          spacing: 5,
-                          runSpacing: 5,
-                          children: widget.genre,
-                        ),
-                      )
+                      // ConstrainedBox(
+                      //   constraints: BoxConstraints(maxWidth: 220),
+                      //   child: ListView.builder(itemBuilder: (context, index) {
+                      //     return Wrap(
+                      //       spacing: 5,
+                      //       runSpacing: 5,
+                      //       children: [genre[index]],
+                      //     );
+                      //   }),
+                      // )
                     ],
                   ),
                 ],

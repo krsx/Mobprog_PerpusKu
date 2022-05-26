@@ -36,19 +36,19 @@ class _IntroductionPageState extends State<IntroductionPage> {
             },
             children: [
               buildPage(
-                  imageUrl: "assets/images/Globe.png",
+                  imageUrl: 'assets/images/Globe.png',
                   title: "Buku Adalah",
                   titleBlue: "Jendela Ilmu",
                   subtitle:
                       "Luangkan waktu mu untuk membaca buku \nsetiap hari"),
               buildPage(
-                  imageUrl: "assets/images/Globe.png",
+                  imageUrl: 'assets/images/Failure.png',
                   title: "Catat dan Ingat\n",
                   titleBlue: "Setiap Hal Penting",
                   subtitle:
                       "Luangkan waktu mu untuk membaca buku \nsetiap hari"),
               buildPage(
-                  imageUrl: "assets/images/Globe.png",
+                  imageUrl: 'assets/images/Writing.png',
                   title: "Kemudahan Merangkum",
                   titleBlue: "Buku Kesukaanmu",
                   subtitle:
@@ -205,57 +205,58 @@ class buildPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: paddingHorizontal,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 30,
-          ),
-          Center(
-            child: Image.asset(
-              imageUrl,
-              scale: 300,
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: paddingHorizontal,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 30,
             ),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: title,
-                  style: semiBlackBoldTextStyle.copyWith(
-                    fontSize: 24,
+            Center(
+              child: Image.asset(
+                imageUrl,
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: title,
+                    style: semiBlackBoldTextStyle.copyWith(
+                      fontSize: 24,
+                    ),
                   ),
-                ),
-                TextSpan(
-                  text: " ",
-                ),
-                TextSpan(
-                  text: titleBlue,
-                  style: semiBlackBoldTextStyle.copyWith(
-                    fontSize: 24,
-                    color: blueColor,
+                  TextSpan(
+                    text: " ",
                   ),
-                ),
-              ],
+                  TextSpan(
+                    text: titleBlue,
+                    style: semiBlackBoldTextStyle.copyWith(
+                      fontSize: 24,
+                      color: blueColor,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            subtitle,
-            style: lightTextStyle.copyWith(
-              fontSize: 12,
+            SizedBox(
+              height: 10,
             ),
-          )
-        ],
+            Text(
+              subtitle,
+              style: lightTextStyle.copyWith(
+                fontSize: 14,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

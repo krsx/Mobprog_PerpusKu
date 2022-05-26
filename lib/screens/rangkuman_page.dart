@@ -204,12 +204,13 @@ class _RangkumanPageState extends State<RangkumanPage> {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TambahRangkuman(),
-                        ),
-                      ),
+                      // onPressed: () => Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => TambahRangkuman(),
+                      //   ),
+                      // ),
+                      onPressed: () {},
                       child: Container(
                         padding: EdgeInsets.symmetric(
                           vertical: 12,

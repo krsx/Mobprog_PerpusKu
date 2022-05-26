@@ -1,25 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:mobprog_perpusku/database/model.dart';
+import 'package:mobprog_perpusku/screens/route_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';
 import 'package:flutter/gestures.dart';
 
+import '../database/db_rangkuman.dart';
+
 class TambahRangkuman extends StatefulWidget {
-  const TambahRangkuman({Key? key}) : super(key: key);
+  final Rangkuman? rangkuman;
+  const TambahRangkuman({Key? key, this.rangkuman}) : super(key: key);
 
   @override
   State<TambahRangkuman> createState() => _TambahRangkumanState();
 }
 
 class _TambahRangkumanState extends State<TambahRangkuman> {
-  bool isFavorite = false;
-  bool isHorror = false;
-  bool isPetualangan = false;
-  bool isPengembanganDiri = false;
-  bool isKomedi = false;
-  bool isRomansa = false;
-  bool isFiksi = false;
-  bool isThriller = false;
-  bool isMisteri = false;
+  final TextEditingController _judulController =
+      TextEditingController(text: '');
+  final TextEditingController _penulisController =
+      TextEditingController(text: '');
+  final TextEditingController _rangkumanController =
+      TextEditingController(text: '');
+
+  late bool isFavorite;
+  late bool isHorror;
+  late bool isPetualangan;
+  late bool isPengembanganDiri;
+  late bool isKomedi;
+  late bool isRomansa;
+  late bool isFiksi;
+  late bool isThriller;
+  late bool isMisteri;
+
+  @override
+  void initState() {
+    super.initState();
+    isFavorite = widget.rangkuman?.favorit ?? false;
+    _judulController.text = widget.rangkuman?.judul ?? '';
+    _penulisController.text = widget.rangkuman?.penulis ?? '';
+    _penulisController.text = widget.rangkuman?.penulis ?? '';
+
+    isHorror = widget.rangkuman?.horror ?? false;
+    isPetualangan = widget.rangkuman?.petualangan ?? false;
+    isPengembanganDiri = widget.rangkuman?.pengembanganDiri ?? false;
+    isKomedi = widget.rangkuman?.komedi ?? false;
+    isRomansa = widget.rangkuman?.romansa ?? false;
+    isFiksi = widget.rangkuman?.fiksi ?? false;
+    isThriller = widget.rangkuman?.thriller ?? false;
+    isMisteri = widget.rangkuman?.misteri ?? false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,12 +119,14 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                     ),
                   ),
                 ),
-                onChanged: (_) {},
+                // onChanged: (_) {},
+                controller: _judulController,
               ),
               SizedBox(
                 height: 20,
               ),
               TextFormField(
+                controller: _penulisController,
                 style: TextStyle(
                   color: greyColor,
                 ),
@@ -122,7 +154,6 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                     ),
                   ),
                 ),
-                onChanged: (_) {},
               ),
               SizedBox(
                 height: 20,
@@ -146,42 +177,58 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                         GenreSelector(
                           genre: horror,
                           checkValue: isHorror,
-                          onChecked: (_) {},
+                          onChecked: (value) {
+                            isHorror = value;
+                          },
                         ),
                         GenreSelector(
                           genre: petualangan,
                           checkValue: isPetualangan,
-                          onChecked: (_) {},
+                          onChecked: (value) {
+                            isPetualangan = value;
+                          },
                         ),
                         GenreSelector(
                           genre: pengembanganDiri,
                           checkValue: isPengembanganDiri,
-                          onChecked: (_) {},
+                          onChecked: (value) {
+                            isPengembanganDiri = value;
+                          },
                         ),
                         GenreSelector(
                           genre: komedi,
                           checkValue: isKomedi,
-                          onChecked: (_) {},
+                          onChecked: (value) {
+                            isKomedi = value;
+                          },
                         ),
                         GenreSelector(
                           genre: romansa,
                           checkValue: isRomansa,
-                          onChecked: (_) {},
+                          onChecked: (value) {
+                            isRomansa = value;
+                          },
                         ),
                         GenreSelector(
                           genre: fiksi,
                           checkValue: isFiksi,
-                          onChecked: (_) {},
+                          onChecked: (value) {
+                            isFiksi = value;
+                          },
                         ),
                         GenreSelector(
                           genre: thriller,
                           checkValue: isThriller,
-                          onChecked: (_) {},
+                          onChecked: (value) {
+                            isThriller = value;
+                          },
                         ),
                         GenreSelector(
                           genre: misteri,
                           checkValue: isMisteri,
-                          onChecked: (_) {},
+                          onChecked: (value) {
+                            isMisteri = value;
+                          },
                         ),
                         // SizedBox(
                         //   height: 20,
@@ -293,6 +340,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
               SizedBox(
                 // height: 300,
                 child: TextFormField(
+                  controller: _rangkumanController,
                   maxLines: null,
                   style: TextStyle(
                     color: greyColor,
@@ -321,7 +369,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                       ),
                     ),
                   ),
-                  onChanged: (_) {},
+                  // onChanged: (_) {},
                 ),
               ),
               SizedBox(
@@ -337,7 +385,55 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: Text("Simpan Rangkuman?"),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(
+                        color: blackColor,
+                        width: 3,
+                      ),
+                    ),
+                    content: SingleChildScrollView(
+                      child: ListBody(children: [
+                        Text(
+                          "Pastikan data yang anda ingin simpan telah terisi dan benar.",
+                          style: regularBlackTextSTyle.copyWith(
+                            fontSize: 12,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ]),
+                    ),
+                    actions: [
+                      ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(blackColor),
+                            elevation: MaterialStateProperty.all(0),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(17),
+                              ),
+                            ),
+                          ),
+                          onPressed: () => statusTambahRangkuman(),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 10,
+                            ),
+                            child: Text(
+                              "Simpan",
+                              style: semiWhiteBoldTextStyle.copyWith(
+                                fontSize: 24,
+                              ),
+                            ),
+                          ))
+                    ],
+                  ),
+                ),
                 child: Container(
                   padding: EdgeInsets.symmetric(
                     vertical: 10,
@@ -356,7 +452,62 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
       ),
     );
   }
+
+  Future statusTambahRangkuman() async {
+    final isUpdate = widget.rangkuman != null;
+
+    if (isUpdate) {
+      await updateNote();
+    } else {
+      await createNote();
+    }
+
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => RoutePage()));
+  }
+
+  Future updateNote() async {
+    final rangkuman = widget.rangkuman!.copy(
+        favorit: isFavorite,
+        judul: _judulController.text,
+        penulis: _penulisController.text,
+        deskripsi: _rangkumanController.text,
+        horror: isHorror,
+        petualangan: isPetualangan,
+        pengembanganDiri: isPengembanganDiri,
+        komedi: isKomedi,
+        romansa: isRomansa,
+        fiksi: isFiksi,
+        thriller: isThriller,
+        misteri: isMisteri,
+        mediaPath: "" // masih tahap pengerjaan
+        );
+
+    await RangkumanDatabase.instance.updateRangkuman(rangkuman);
+  }
+
+  Future createNote() async {
+    final rangkuman = Rangkuman(
+      favorit: isFavorite,
+      judul: _judulController.text,
+      penulis: _penulisController.text,
+      deskripsi: _rangkumanController.text,
+      horror: isHorror,
+      petualangan: isPetualangan,
+      pengembanganDiri: isPengembanganDiri,
+      komedi: isKomedi,
+      romansa: isRomansa,
+      fiksi: isFiksi,
+      thriller: isThriller,
+      misteri: isMisteri,
+      mediaPath: "",
+    );
+
+    await RangkumanDatabase.instance.createRangkuman(rangkuman);
+  }
 }
+
+class RoundedeRectangleBorder {}
 
 class GenreSelector extends StatefulWidget {
   const GenreSelector({
