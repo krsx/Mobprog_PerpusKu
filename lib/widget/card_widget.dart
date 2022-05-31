@@ -65,11 +65,8 @@ class _RangkumanCardState extends State<RangkumanCard> {
   Widget build(BuildContext context) {
     isiGenre();
 
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => RangkumanPage()));
-      },
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 0),
       child: Container(
         decoration: BoxDecoration(
           color: whiteColor,
@@ -98,20 +95,23 @@ class _RangkumanCardState extends State<RangkumanCard> {
                 width: 10,
               ),
               Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
+                  // Row(
+                  //   mainAxisSize: MainAxisSize.min,
+                  //   mainAxisAlignment: MainAxisAlignment.end,
+                  //   children: [
+                  //     Spacer(),
+                  //     Icon(
+                  //       Icons.favorite,
+                  //       size: 20,
+                  //       color: widget.favorite ? blueColor : whiteColor,
+                  //     ),
+                  //   ],
+                  // ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Spacer(),
-                      Icon(
-                        Icons.favorite,
-                        size: 20,
-                        color: widget.favorite ? blueColor : whiteColor,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    // mainAxisSize: MainAxisSize.min,
+                    // mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -120,9 +120,9 @@ class _RangkumanCardState extends State<RangkumanCard> {
                           fontSize: 14,
                         ),
                       ),
-                      // SizedBox(
-                      //   height: 2,
-                      // ),
+                      SizedBox(
+                        height: 2,
+                      ),
                       Text(
                         widget.penulis,
                         style: lightTextStyle.copyWith(
@@ -132,6 +132,7 @@ class _RangkumanCardState extends State<RangkumanCard> {
                       SizedBox(
                         height: 2,
                       ),
+
                       // Row(
                       //   children: [
                       //     fiksi,
@@ -145,15 +146,27 @@ class _RangkumanCardState extends State<RangkumanCard> {
                       //     thriller,
                       //   ],
                       // )
-                      // ConstrainedBox(
-                      //   constraints: BoxConstraints(maxWidth: 220),
-                      //   child: ListView.builder(itemBuilder: (context, index) {
-                      //     return Wrap(
-                      //       spacing: 5,
-                      //       runSpacing: 5,
-                      //       children: [genre[index]],
-                      //     );
-                      //   }),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 200),
+                        child: Wrap(
+                          runSpacing: 5,
+                          spacing: genre.first == 1 ? 0 : 5,
+                          children: genre,
+                        ),
+                      )
+
+                      // Expanded(
+                      //   child: Container(
+                      //     height: 300,
+                      //     child: ListView.builder(
+                      //       physics: NeverScrollableScrollPhysics(),
+                      //       shrinkWrap: true,
+                      //       itemCount: genre.length,
+                      //       itemBuilder: (context, index) {
+                      //         return genre[index];
+                      //       },
+                      //     ),
+                      //   ),
                       // )
                     ],
                   ),

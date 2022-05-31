@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobprog_perpusku/database/db_rangkuman.dart';
 import 'package:mobprog_perpusku/database/model.dart';
 import 'package:mobprog_perpusku/theme.dart';
+import 'package:mobprog_perpusku/widget/card_rangkuman.dart';
 import 'package:mobprog_perpusku/widget/card_widget.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';
 
@@ -16,6 +17,11 @@ class _MainPageState extends State<MainPage> {
   late List<Rangkuman> rangkuman;
   bool isLoading = false;
 
+  void initState() {
+    super.initState();
+    refreshList();
+  }
+
   Future refreshList() async {
     setState(() {
       isLoading = true;
@@ -26,15 +32,11 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  void initState() {
-    super.initState();
-    refreshList();
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: whiteColor,
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: paddingHorizontal,
@@ -129,31 +131,37 @@ class _MainPageState extends State<MainPage> {
                           height: 10,
                         ),
                         Expanded(
-                            child: ListView.builder(
-                          itemCount: rangkuman.length,
-                          itemBuilder: (context, index) {
-                            return Column(
-                              children: [
-                                RangkumanCard(
-                                  id: rangkuman[index].id!,
-                                  favorite: rangkuman[index].favorit,
-                                  judul: rangkuman[index].judul,
-                                  penulis: rangkuman[index].penulis,
-                                  mediaPath: '',
-                                  horror: rangkuman[index].horror,
-                                  petualangan: rangkuman[index].petualangan,
-                                  pengembanganDiri:
-                                      rangkuman[index].pengembanganDiri,
-                                  komedi: rangkuman[index].komedi,
-                                  romansa: rangkuman[index].romansa,
-                                  fiksi: rangkuman[index].fiksi,
-                                  thriller: rangkuman[index].thriller,
-                                  misteri: rangkuman[index].misteri,
-                                )
-                              ],
-                            );
-                          },
-                        ))
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            physics: BouncingScrollPhysics(),
+                            itemCount: rangkuman.length,
+                            itemBuilder: (context, index) {
+                              return Column(
+                                children: [
+                                  RangkumanCard(
+                                    id: rangkuman[index].id!,
+                                    favorite: rangkuman[index].favorit,
+                                    judul: rangkuman[index].judul,
+                                    penulis: rangkuman[index].penulis,
+                                    mediaPath: '',
+                                    horror: rangkuman[index].horror,
+                                    petualangan: rangkuman[index].petualangan,
+                                    pengembanganDiri:
+                                        rangkuman[index].pengembanganDiri,
+                                    komedi: rangkuman[index].komedi,
+                                    romansa: rangkuman[index].romansa,
+                                    fiksi: rangkuman[index].fiksi,
+                                    thriller: rangkuman[index].thriller,
+                                    misteri: rangkuman[index].misteri,
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
+                        ),
                       ],
                     ),
         ),
@@ -161,6 +169,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
 
 // ListView(
 //             physics: BouncingScrollPhysics(),
