@@ -98,8 +98,8 @@ class _RangkumanCardState extends State<RangkumanCard> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   // Row(
-                  //   mainAxisSize: MainAxisSize.min,
-                  //   mainAxisAlignment: MainAxisAlignment.end,
+                  // mainAxisSize: MainAxisSize.min,
+                  // mainAxisAlignment: MainAxisAlignment.end,
                   //   children: [
                   //     Spacer(),
                   //     Icon(
@@ -171,7 +171,21 @@ class _RangkumanCardState extends State<RangkumanCard> {
                     ],
                   ),
                 ],
-              )
+              ),
+              Spacer(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(
+                    Icons.favorite,
+                    size: 22,
+                    color: blackColor,
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                ],
+              ),
             ],
           ),
         ),
