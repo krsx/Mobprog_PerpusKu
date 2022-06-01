@@ -1,12 +1,16 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:mobprog_perpusku/database/model.dart';
 import 'package:mobprog_perpusku/screens/tambah_rangkuman_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';
 
+import '../widget/genre_widget.dart';
+
 class RangkumanPage extends StatefulWidget {
-  const RangkumanPage({Key? key}) : super(key: key);
+  final readId;
+  const RangkumanPage({Key? key, required this.readId}) : super(key: key);
 
   @override
   State<RangkumanPage> createState() => _RangkumanPageState();
@@ -14,6 +18,22 @@ class RangkumanPage extends StatefulWidget {
 
 class _RangkumanPageState extends State<RangkumanPage> {
   bool isFavorite = true;
+  late Rangkuman rangkuman;
+  bool isLoading = false;
+  List<Widget> genre = [];
+
+  void isiGenre() {
+    genre.clear();
+    genre.add(Container());
+    if (rangkuman.horror) genre.add(horror);
+    if (rangkuman.petualangan) genre.add(petualangan);
+    if (rangkuman.pengembanganDiri) genre.add(pengembanganDiri);
+    if (rangkuman.komedi) genre.add(komedi);
+    if (rangkuman.romansa) genre.add(romansa);
+    if (rangkuman.fiksi) genre.add(fiksi);
+    if (rangkuman.thriller) genre.add(thriller);
+    if (rangkuman.misteri) genre.add(misteri);
+  }
 
   @override
   Widget build(BuildContext context) {
