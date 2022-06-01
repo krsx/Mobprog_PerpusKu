@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobprog_perpusku/database/db_rangkuman.dart';
+import 'package:mobprog_perpusku/database/model.dart';
 import 'package:mobprog_perpusku/theme.dart';
+
+import '../widget/card_widget.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -9,6 +13,23 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  late List<Rangkuman> rangkuman;
+  List<Rangkuman> rangkumanTemp = [];
+  String query = '';
+  bool isLoading = false;
+
+  void initState() {
+    super.initState();
+    refreshList();
+  }
+
+  Future refreshList() async {
+    setState(() => isLoading = true);
+    this.rangkuman = await RangkumanDatabase.instance.readAllRangkuman();
+
+    setState(() => isLoading = false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,11 +100,72 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                 ),
               ),
-              onChanged: (_) {},
+              onChanged: (value) {
+                searchRangkuman(value);
+              },
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: BouncingScrollPhysics(),
+                itemCount: rangkumanTemp.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      RangkumanCard(
+                        id: rangkumanTemp[index].id!,
+                        favorite: rangkumanTemp[index].favorit,
+                        judul: rangkumanTemp[index].judul,
+                        penulis: rangkumanTemp[index].penulis,
+                        mediaPath: '',
+                        horror: rangkumanTemp[index].horror,
+                        petualangan: rangkumanTemp[index].petualangan,
+                        pengembanganDiri: rangkumanTemp[index].pengembanganDiri,
+                        komedi: rangkumanTemp[index].komedi,
+                        romansa: rangkumanTemp[index].romansa,
+                        fiksi: rangkumanTemp[index].fiksi,
+                        thriller: rangkumanTemp[index].thriller,
+                        misteri: rangkumanTemp[index].misteri,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  );
+                },
+              ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  void searchRangkuman(String query) {
+    // print("query: ${query}");
+    final books = rangkuman.where((book) {
+      final titleLower = book.judul.toLowerCase();
+      final authorLower = book.penulis.toLowerCase();
+      final searchLower = query.toLowerCase();
+
+      return titleLower.contains(searchLower) ||
+          authorLower.contains(searchLower);
+    }).toList();
+    // print("books :${books}");
+    setState(() {
+      if (query == '' || query.isEmpty) {
+        rangkumanTemp.clear();
+      } else {
+        this.query = query;
+        this.rangkumanTemp = books;
+      }
+    });
+    // print(rangkumanTemp);
   }
 }

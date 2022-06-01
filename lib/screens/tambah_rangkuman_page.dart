@@ -421,8 +421,8 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                         onPressed: () => statusTambahRangkuman(),
                         child: Text(
                           "Ya",
-                          style:
-                              mediumBlackTextSTyle.copyWith(color: whiteColor),
+                          style: semiBlackBoldTextStyle.copyWith(
+                              color: whiteColor),
                         ),
                       ),
                       TextButton(
@@ -439,7 +439,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                         onPressed: () => Navigator.pop(context),
                         child: Text(
                           "Tidak",
-                          style: mediumBlackTextSTyle.copyWith(
+                          style: semiBlackBoldTextStyle.copyWith(
                             color: whiteColor,
                           ),
                         ),

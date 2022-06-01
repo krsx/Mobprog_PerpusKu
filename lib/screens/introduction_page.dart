@@ -46,13 +46,13 @@ class _IntroductionPageState extends State<IntroductionPage> {
                   title: "Catat dan Ingat\n",
                   titleBlue: "Setiap Hal Penting",
                   subtitle:
-                      "Luangkan waktu mu untuk membaca buku \nsetiap hari"),
+                      "Simpan setiap progress dan hal penting dari buku yang telah dibaca"),
               buildPage(
                   imageUrl: 'assets/images/Writing.png',
                   title: "Kemudahan Merangkum",
                   titleBlue: "Buku Kesukaanmu",
                   subtitle:
-                      "Luangkan waktu mu untuk membaca buku \nsetiap hari"),
+                      "Stop membuang waktu membaca buku kesukaanmu berulang kali"),
             ],
           ),
         ),

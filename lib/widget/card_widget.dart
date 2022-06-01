@@ -69,7 +69,9 @@ class _RangkumanCardState extends State<RangkumanCard> {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => RangkumanPage(),
+          builder: (context) => RangkumanPage(
+            readId: widget.id,
+          ),
         ),
       ),
       child: Padding(
@@ -131,7 +133,7 @@ class _RangkumanCardState extends State<RangkumanCard> {
                           height: 2,
                         ),
                         Text(
-                          "Oleh ${widget.penulis}",
+                          "oleh ${widget.penulis}",
                           style: lightTextStyle.copyWith(
                             fontSize: 14,
                           ),

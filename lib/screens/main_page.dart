@@ -154,7 +154,7 @@ class _MainPageState extends State<MainPage> {
                                     misteri: rangkuman[index].misteri,
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: 20,
                                   ),
                                 ],
                               );

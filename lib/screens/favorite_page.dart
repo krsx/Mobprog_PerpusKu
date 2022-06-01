@@ -151,7 +151,7 @@ class _FavoritePageState extends State<FavoritePage> {
                                   misteri: rangkuman[index].misteri,
                                 ),
                                 SizedBox(
-                                  height: 10,
+                                  height: 20,
                                 ),
                               ],
                             );
