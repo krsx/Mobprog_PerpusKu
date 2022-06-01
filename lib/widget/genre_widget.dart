@@ -9,7 +9,7 @@ final horror = Container(
     child: Text(
       "Horror",
       style: mediumWhiteTextSTyle.copyWith(
-        fontSize: 12,
+        fontSize: 11,
       ),
     ),
   ),
@@ -23,7 +23,7 @@ final petualangan = Container(
     child: Text(
       "Petualangan",
       style: mediumWhiteTextSTyle.copyWith(
-        fontSize: 12,
+        fontSize: 11,
       ),
     ),
   ),
@@ -37,7 +37,7 @@ final pengembanganDiri = Container(
     child: Text(
       "Pengembangan Diri",
       style: mediumWhiteTextSTyle.copyWith(
-        fontSize: 12,
+        fontSize: 11,
       ),
     ),
   ),
@@ -51,7 +51,7 @@ final komedi = Container(
     child: Text(
       "Komedi",
       style: mediumWhiteTextSTyle.copyWith(
-        fontSize: 12,
+        fontSize: 11,
       ),
     ),
   ),
@@ -65,7 +65,7 @@ final romansa = Container(
     child: Text(
       "Romansa",
       style: mediumWhiteTextSTyle.copyWith(
-        fontSize: 12,
+        fontSize: 11,
       ),
     ),
   ),
@@ -79,7 +79,7 @@ final fiksi = Container(
     child: Text(
       "Fiksi",
       style: mediumWhiteTextSTyle.copyWith(
-        fontSize: 12,
+        fontSize: 11,
       ),
     ),
   ),
@@ -93,7 +93,7 @@ final thriller = Container(
     child: Text(
       "Thriller",
       style: mediumWhiteTextSTyle.copyWith(
-        fontSize: 12,
+        fontSize: 11,
       ),
     ),
   ),
@@ -107,7 +107,7 @@ final misteri = Container(
     child: Text(
       "Misteri",
       style: mediumWhiteTextSTyle.copyWith(
-        fontSize: 12,
+        fontSize: 11,
       ),
     ),
   ),

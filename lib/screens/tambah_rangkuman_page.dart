@@ -400,7 +400,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                       child: ListBody(children: [
                         Text(
                           "Pastikan data yang anda ingin simpan telah terisi dan benar.",
-                          style: regularBlackTextSTyle.copyWith(
+                          style: lightTextStyle.copyWith(
                             fontSize: 12,
                           ),
                           textAlign: TextAlign.justify,
@@ -408,29 +408,42 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                       ]),
                     ),
                     actions: [
-                      ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(blackColor),
-                            elevation: MaterialStateProperty.all(0),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(17),
-                              ),
+                      TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(blueColor),
+                          textStyle: MaterialStateProperty.all(
+                            TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: whiteColor,
                             ),
                           ),
-                          onPressed: () => statusTambahRangkuman(),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              vertical: 10,
+                        ),
+                        onPressed: () => statusTambahRangkuman(),
+                        child: Text(
+                          "Ya",
+                          style:
+                              mediumBlackTextSTyle.copyWith(color: whiteColor),
+                        ),
+                      ),
+                      TextButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(blackColor),
+                          textStyle: MaterialStateProperty.all(
+                            TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: whiteColor,
                             ),
-                            child: Text(
-                              "Simpan",
-                              style: semiWhiteBoldTextStyle.copyWith(
-                                fontSize: 24,
-                              ),
-                            ),
-                          ))
+                          ),
+                        ),
+                        onPressed: () => Navigator.pop(context),
+                        child: Text(
+                          "Tidak",
+                          style: mediumBlackTextSTyle.copyWith(
+                            color: whiteColor,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

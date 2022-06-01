@@ -50,7 +50,7 @@ class _RangkumanCardState extends State<RangkumanCard> {
 
   void isiGenre() {
     genre.clear();
-    genre.add(SizedBox());
+    genre.add(Container());
     if (widget.horror) genre.add(horror);
     if (widget.petualangan) genre.add(petualangan);
     if (widget.pengembanganDiri) genre.add(pengembanganDiri);
@@ -65,128 +65,133 @@ class _RangkumanCardState extends State<RangkumanCard> {
   Widget build(BuildContext context) {
     isiGenre();
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: whiteColor,
-          border: Border.all(width: 2),
-          borderRadius: BorderRadius.circular(12),
+    return InkWell(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => RangkumanPage(),
         ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: 12,
-            horizontal: 20,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: whiteColor,
+            border: Border.all(width: 2),
+            borderRadius: BorderRadius.circular(12),
           ),
-          child: Row(
-            children: [
-              Container(
-                width: 70,
-                height: 100,
-                color: blackColor,
-                child: Center(
-                  child: Text(
-                    "Images",
-                    style: mediumWhiteTextSTyle,
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 12,
+              horizontal: 20,
+            ),
+            child: Row(
+              children: [
+                Container(
+                  width: 70,
+                  height: 100,
+                  color: blackColor,
+                  child: Center(
+                    child: Text(
+                      "Images",
+                      style: mediumWhiteTextSTyle,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  // Row(
-                  // mainAxisSize: MainAxisSize.min,
-                  // mainAxisAlignment: MainAxisAlignment.end,
-                  //   children: [
-                  //     Spacer(),
-                  //     Icon(
-                  //       Icons.favorite,
-                  //       size: 20,
-                  //       color: widget.favorite ? blueColor : whiteColor,
-                  //     ),
-                  //   ],
-                  // ),
-                  Column(
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Row(
                     // mainAxisSize: MainAxisSize.min,
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.judul,
-                        style: mediumBlackTextSTyle.copyWith(
-                          fontSize: 14,
+                    // mainAxisAlignment: MainAxisAlignment.end,
+                    //   children: [
+                    //     Spacer(),
+                    //     Icon(
+                    //       Icons.favorite,
+                    //       size: 20,
+                    //       color: widget.favorite ? blueColor : whiteColor,
+                    //     ),
+                    //   ],
+                    // ),
+                    Column(
+                      // mainAxisSize: MainAxisSize.min,
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.judul,
+                          style: mediumBlackTextSTyle.copyWith(
+                            fontSize: 14,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text(
-                        widget.penulis,
-                        style: lightTextStyle.copyWith(
-                          fontSize: 14,
+                        SizedBox(
+                          height: 2,
                         ),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
+                        Text(
+                          "Oleh ${widget.penulis}",
+                          style: lightTextStyle.copyWith(
+                            fontSize: 14,
+                          ),
+                        ),
 
-                      // Row(
-                      //   children: [
-                      //     fiksi,
-                      //     SizedBox(
-                      //       width: 4,
-                      //     ),
-                      //     petualangan,
-                      //     SizedBox(
-                      //       width: 4,
-                      //     ),
-                      //     thriller,
-                      //   ],
-                      // )
-                      ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: 200),
-                        child: Wrap(
-                          runSpacing: 5,
-                          spacing: genre.first == 1 ? 0 : 5,
-                          children: genre,
-                        ),
-                      )
+                        // Row(
+                        //   children: [
+                        //     fiksi,
+                        //     SizedBox(
+                        //       width: 4,
+                        //     ),
+                        //     petualangan,
+                        //     SizedBox(
+                        //       width: 4,
+                        //     ),
+                        //     thriller,
+                        //   ],
+                        // )
+                        ConstrainedBox(
+                          constraints: BoxConstraints(maxWidth: 200),
+                          child: Wrap(
+                            runSpacing: 5,
+                            spacing: 2,
+                            children: genre,
+                          ),
+                        )
 
-                      // Expanded(
-                      //   child: Container(
-                      //     height: 300,
-                      //     child: ListView.builder(
-                      //       physics: NeverScrollableScrollPhysics(),
-                      //       shrinkWrap: true,
-                      //       itemCount: genre.length,
-                      //       itemBuilder: (context, index) {
-                      //         return genre[index];
-                      //       },
-                      //     ),
-                      //   ),
-                      // )
-                    ],
-                  ),
-                ],
-              ),
-              Spacer(),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Icon(
-                    Icons.favorite,
-                    size: 22,
-                    color: blackColor,
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                ],
-              ),
-            ],
+                        // Expanded(
+                        //   child: Container(
+                        //     height: 300,
+                        //     child: ListView.builder(
+                        //       physics: NeverScrollableScrollPhysics(),
+                        //       shrinkWrap: true,
+                        //       itemCount: genre.length,
+                        //       itemBuilder: (context, index) {
+                        //         return genre[index];
+                        //       },
+                        //     ),
+                        //   ),
+                        // )
+                      ],
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.favorite,
+                      size: 20,
+                      color: widget.favorite ? blueColor : whiteColor,
+                    ),
+                    SizedBox(
+                      height: 80,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
