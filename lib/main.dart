@@ -4,9 +4,17 @@ import 'package:mobprog_perpusku/screens/introduction_page.dart';
 import 'package:mobprog_perpusku/screens/login.dart';
 import 'package:mobprog_perpusku/screens/welcome_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
-  runApp(const MyApp());
+// void main() {
+//   runApp(const MyApp());
+// }
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

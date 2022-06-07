@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "73753882132",
+    "project_id": "mobprog-perpusku",
+    "storage_bucket": "mobprog-perpusku.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73753882132:android:cff873fe2b66dab1218101",
+        "android_client_info": {
+          "package_name": "com.example.mobprog_perpusku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73753882132-p3hqjh83etj7j657ksp9jo5ppq5edet8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCysEDB_6EDqfe7okgxdgyLtgDC5dc5KKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73753882132-p3hqjh83etj7j657ksp9jo5ppq5edet8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
