@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobprog_perpusku/database/model.dart';
+import 'package:mobprog_perpusku/database/models/rangkuman.dart';
 import 'package:mobprog_perpusku/screens/route_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';

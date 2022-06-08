@@ -40,7 +40,10 @@ dependencies:
   introduction_screen: ^3.0.2
   smooth_page_indicator: ^1.0.0+2
   shared_preferences: ^2.0.15
-  cloud_firestore: ^3.1.17
+  firebase_core: ^1.17.1
+  firebase_auth: ^3.3.19
+  provider: ^6.0.3
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:

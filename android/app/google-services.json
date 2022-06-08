@@ -29,6 +29,13 @@
             {
               "client_id": "73753882132-p3hqjh83etj7j657ksp9jo5ppq5edet8.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "73753882132-50suhi1cfrir4tnj03l6k0rr69aef4ps.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobprogPerpusku"
+              }
             }
           ]
         }

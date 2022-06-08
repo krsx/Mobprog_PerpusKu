@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:mobprog_perpusku/database/db_rangkuman.dart';
-import 'package:mobprog_perpusku/database/model.dart';
+import 'package:mobprog_perpusku/database/models/rangkuman.dart';
 import 'package:mobprog_perpusku/screens/route_page.dart';
 import 'package:mobprog_perpusku/screens/tambah_rangkuman_page.dart';
 import 'package:mobprog_perpusku/theme.dart';

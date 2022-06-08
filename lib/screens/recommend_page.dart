@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobprog_perpusku/providers/book_collection_providers.dart';
 import 'package:mobprog_perpusku/theme.dart';
+import 'package:mobprog_perpusku/widget/card_rekomendasi_widget.dart';
+import 'package:provider/provider.dart';
 
 class RecomendationPage extends StatefulWidget {
   const RecomendationPage({Key? key}) : super(key: key);
@@ -10,7 +13,17 @@ class RecomendationPage extends StatefulWidget {
 
 class _RecomendationPageState extends State<RecomendationPage> {
   @override
+  void initState() {
+    super.initState();
+    final _bookColProvider = Provider.of<BookCollectionProvider>(
+      context,
+      listen: false,
+    ).getBookCollection();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final _bookColProvider = Provider.of<BookCollectionProvider>(context);
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -18,8 +31,8 @@ class _RecomendationPageState extends State<RecomendationPage> {
             horizontal: paddingHorizontal,
             vertical: 0,
           ),
-          child: ListView(
-            physics: BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 30,
@@ -52,6 +65,31 @@ class _RecomendationPageState extends State<RecomendationPage> {
                   fontSize: 16,
                 ),
               ),
+              const SizedBox(height: 10),
+              _bookColProvider.loading
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : Expanded(
+                      child: ListView.builder(
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: CardRekomendasi(
+                              title: _bookColProvider
+                                      .bookCol?.items[index].volumeInfo.title ??
+                                  '',
+                              author: _bookColProvider.bookCol?.items[index]
+                                      .volumeInfo.authors[0] ??
+                                  '',
+                              thumbnail: _bookColProvider.bookCol?.items[index].volumeInfo.imageLinks.smallThumbnail ?? 
+                              'https://picsum.photos/200/300',
+                            ),
+                          );
+                        },
+                      ),
+                    )
             ],
           ),
         ),

@@ -1,7 +1,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import 'model.dart';
+import 'models/rangkuman.dart';
 
 class RangkumanDatabase {
   static final RangkumanDatabase instance = RangkumanDatabase._init();

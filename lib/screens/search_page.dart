@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobprog_perpusku/database/db_rangkuman.dart';
-import 'package:mobprog_perpusku/database/model.dart';
+import 'package:mobprog_perpusku/database/models/rangkuman.dart';
 import 'package:mobprog_perpusku/theme.dart';
 
 import '../widget/card_widget.dart';

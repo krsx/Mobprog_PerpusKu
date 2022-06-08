@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobprog_perpusku/screens/route_page.dart';
+import 'package:mobprog_perpusku/screens/login.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -97,7 +97,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => RoutePage(),
+                          builder: (context) => LoginPage(),
                         ),
                       ),
                       child: Container(

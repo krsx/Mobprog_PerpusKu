@@ -3,7 +3,7 @@ import 'package:mobprog_perpusku/database/db_rangkuman.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/card_widget.dart';
 
-import '../database/model.dart';
+import '../database/models/rangkuman.dart';
 import '../widget/genre_widget.dart';
 
 class FavoritePage extends StatefulWidget {
