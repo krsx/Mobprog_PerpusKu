@@ -85,9 +85,9 @@ class Validator {
         r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
 
     if (email.isEmpty) {
-      return 'Email can\'t be empty';
+      return 'Email tidak boleh kosong';
     } else if (!emailRegExp.hasMatch(email)) {
-      return 'Enter a correct email';
+      return 'Masukkan email yang benar';
     }
 
     return null;
@@ -98,9 +98,9 @@ class Validator {
       return null;
     }
     if (password.isEmpty) {
-      return 'Password can\'t be empty';
+      return 'Password tidak boleh kosong';
     } else if (password.length < 6) {
-      return 'Enter a password with length at least 6';
+      return 'Panjang password minimal 6 karakter';
     }
 
     return null;

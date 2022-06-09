@@ -142,7 +142,7 @@ class _MainPageState extends State<MainPage> {
                                     favorite: rangkuman[index].favorit,
                                     judul: rangkuman[index].judul,
                                     penulis: rangkuman[index].penulis,
-                                    mediaPath: '',
+                                    mediaPath: rangkuman[index].mediaPath,
                                     horror: rangkuman[index].horror,
                                     petualangan: rangkuman[index].petualangan,
                                     pengembanganDiri:

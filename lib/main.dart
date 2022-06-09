@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           backgroundColor: whiteColor,
         ),
-        home: RoutePage(),
+        home: IntroductionPage(),
       ),
     );
   }

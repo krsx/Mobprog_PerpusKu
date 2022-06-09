@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:mobprog_perpusku/screens/recommended_view_page.dart';
 
 import '../theme.dart';
 
 class CardRekomendasi extends StatefulWidget {
-  const CardRekomendasi({Key? key, required this.title, required this.author, required this.thumbnail,})
-      : super(key: key);
+  const CardRekomendasi({
+    Key? key,
+    required this.title,
+    required this.author,
+    required this.thumbnail,
+    required this.index,
+  }) : super(key: key);
 
   final String title;
   final String author;
   final String thumbnail;
+  final int index;
 
   @override
   State<CardRekomendasi> createState() => _CardRekomendasiState();
@@ -18,7 +25,12 @@ class _CardRekomendasiState extends State<CardRekomendasi> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => RecomendationViewPage(index: widget.index),
+        ),
+      ),
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
@@ -61,11 +73,14 @@ class _CardRekomendasiState extends State<CardRekomendasi> {
                   // mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.title,
-                      overflow: TextOverflow.ellipsis,
-                      style: mediumBlackTextSTyle.copyWith(
-                        fontSize: 14,
+                    ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: 200),
+                      child: Text(
+                        widget.title,
+                        overflow: TextOverflow.ellipsis,
+                        style: mediumBlackTextSTyle.copyWith(
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -92,14 +107,14 @@ class _CardRekomendasiState extends State<CardRekomendasi> {
                     //     thriller,
                     //   ],
                     // )
-                    ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 200),
-                      child: Wrap(
-                        runSpacing: 5,
-                        spacing: 2,
-                        children: [],
-                      ),
-                    )
+                    // ConstrainedBox(
+                    //   constraints: BoxConstraints(maxWidth: 200),
+                    //   child: Wrap(
+                    //     runSpacing: 5,
+                    //     spacing: 2,
+                    //     children: [],
+                    //   ),
+                    // )
 
                     // Expanded(
                     //   child: Container(
@@ -118,20 +133,20 @@ class _CardRekomendasiState extends State<CardRekomendasi> {
                 ),
               ],
             ),
-            Spacer(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Icon(
-                  Icons.favorite,
-                  size: 20,
-                  // color: widget.favorite ? blueColor : whiteColor,
-                ),
-                SizedBox(
-                  height: 80,
-                ),
-              ],
-            ),
+            // Spacer(),
+            // Column(
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   children: [
+            //     Icon(
+            //       Icons.favorite,
+            //       size: 20,
+            //       // color: widget.favorite ? blueColor : whiteColor,
+            //     ),
+            //     SizedBox(
+            //       height: 80,
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),

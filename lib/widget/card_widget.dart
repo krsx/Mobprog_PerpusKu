@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:mobprog_perpusku/screens/rangkuman_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
@@ -89,17 +91,24 @@ class _RangkumanCardState extends State<RangkumanCard> {
             ),
             child: Row(
               children: [
-                Container(
-                  width: 70,
-                  height: 100,
-                  color: blackColor,
-                  child: Center(
-                    child: Text(
-                      "Images",
-                      style: mediumWhiteTextSTyle,
-                    ),
-                  ),
-                ),
+                widget.mediaPath == ''
+                    ? Container(
+                        width: 70,
+                        height: 100,
+                        color: blackColor,
+                        child: Center(
+                          child: Text(
+                            "Images",
+                            style: mediumWhiteTextSTyle,
+                          ),
+                        ),
+                      )
+                    : Image.file(
+                        File(widget.mediaPath),
+                        width: 70,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
                 SizedBox(
                   width: 10,
                 ),

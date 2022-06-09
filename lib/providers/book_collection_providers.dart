@@ -9,8 +9,8 @@ class BookCollectionProvider extends ChangeNotifier {
   BookCollection? get bookCol => _bookCol;
 
   Future<BookCollection?> fetchBookCollection({String search = ''}) async {
-    final res = await http.get(
-        Uri.parse("https://www.googleapis.com/books/v1/volumes?q=''"));
+    final res = await http
+        .get(Uri.parse("https://www.googleapis.com/books/v1/volumes?q=''"));
 
     if (res.statusCode == 200) {
       return BookCollection.fromJson(json.decode(res.body));

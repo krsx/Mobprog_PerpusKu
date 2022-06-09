@@ -23,6 +23,9 @@ class _LoginPageState extends State<LoginPage> {
       TextEditingController(text: '');
   final TextEditingController _passwordController =
       TextEditingController(text: '');
+
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,7 +33,9 @@ class _LoginPageState extends State<LoginPage> {
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Form(
+              key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -129,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                         Validator.validatePassword(password: value),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   Center(
                     child: Row(
@@ -168,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 175,
+                    height: 130,
                   ),
                   ElevatedButton(
                     style: ButtonStyle(
@@ -186,12 +191,16 @@ class _LoginPageState extends State<LoginPage> {
                         password: _passwordController.text,
                         context: context,
                       );
-                      if (user != null) {
+                      if (_formKey.currentState!.validate() && user != null) {
                         Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                              builder: (context) => RoutePage()),
+                          MaterialPageRoute(builder: (context) => RoutePage()),
                         );
                       }
+                      // if (user != null) {
+                      //   Navigator.of(context).pushReplacement(
+                      //     MaterialPageRoute(builder: (context) => RoutePage()),
+                      //   );
+                      // }
                     },
                     child: Container(
                       width: double.infinity,
@@ -207,6 +216,9 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 30,
                   ),
                 ],
               ),

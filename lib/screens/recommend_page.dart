@@ -72,19 +72,33 @@ class _RecomendationPageState extends State<RecomendationPage> {
                     )
                   : Expanded(
                       child: ListView.builder(
+                        physics: BouncingScrollPhysics(),
                         itemCount: 10,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 10),
-                            child: CardRekomendasi(
-                              title: _bookColProvider
-                                      .bookCol?.items[index].volumeInfo.title ??
-                                  '',
-                              author: _bookColProvider.bookCol?.items[index]
-                                      .volumeInfo.authors[0] ??
-                                  '',
-                              thumbnail: _bookColProvider.bookCol?.items[index].volumeInfo.imageLinks.smallThumbnail ?? 
-                              'https://picsum.photos/200/300',
+                            child: Column(
+                              children: [
+                                CardRekomendasi(
+                                  title: _bookColProvider.bookCol?.items[index]
+                                          .volumeInfo.title ??
+                                      '',
+                                  author: _bookColProvider.bookCol?.items[index]
+                                          .volumeInfo.authors[0] ??
+                                      '',
+                                  thumbnail: _bookColProvider
+                                          .bookCol
+                                          ?.items[index]
+                                          .volumeInfo
+                                          .imageLinks
+                                          .smallThumbnail ??
+                                      'https://picsum.photos/200/300',
+                                  index: index,
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                )
+                              ],
                             ),
                           );
                         },

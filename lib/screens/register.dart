@@ -27,6 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
             horizontal: paddingHorizontal,
           ),
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Form(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,7 +157,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     controller: _confirmPassController,
                   ),
                   SizedBox(
-                    height: 180,
+                    height: 160,
                   ),
                   ElevatedButton(
                     style: ButtonStyle(

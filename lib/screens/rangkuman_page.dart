@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -67,6 +68,7 @@ class _RangkumanPageState extends State<RangkumanPage> {
                     SizedBox(
                       height: 30,
                     ),
+
                     Row(
                       children: [
                         IconButton(
@@ -100,6 +102,27 @@ class _RangkumanPageState extends State<RangkumanPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            rangkuman.mediaPath == ''
+                                ? Container(
+                                    width: 70,
+                                    height: 100,
+                                    color: blackColor,
+                                    child: Center(
+                                      child: Text(
+                                        "Images",
+                                        style: mediumWhiteTextSTyle,
+                                      ),
+                                    ),
+                                  )
+                                : Image.file(
+                                    File(rangkuman.mediaPath),
+                                    width: 70,
+                                    height: 100,
+                                    fit: BoxFit.cover,
+                                  ),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Text(
                               rangkuman.judul,
                               style: semiBlackBoldTextStyle.copyWith(

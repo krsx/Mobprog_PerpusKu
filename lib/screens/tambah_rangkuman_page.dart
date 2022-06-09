@@ -1,9 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mobprog_perpusku/database/models/rangkuman.dart';
 import 'package:mobprog_perpusku/screens/route_page.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:mobprog_perpusku/widget/genre_widget.dart';
 import 'package:flutter/gestures.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as Path;
 
 import '../database/db_rangkuman.dart';
 
@@ -16,6 +22,31 @@ class TambahRangkuman extends StatefulWidget {
 }
 
 class _TambahRangkumanState extends State<TambahRangkuman> {
+  File? image;
+
+  Future pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+      final imagePermanent = await saveImagePermanently(image.path);
+      setState(() => {
+            this.image = imagePermanent,
+          });
+    } on PlatformException catch (e) {
+      print('Failed to fetch img: $e');
+    }
+  }
+
+  Future<File> saveImagePermanently(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name = Path.basename(imagePath);
+    final image = File('${directory.path}/${name}');
+    setState(() => {
+          this.mediaPath = image.path,
+        });
+    return File(imagePath).copy(image.path);
+  }
+
   final TextEditingController _judulController =
       TextEditingController(text: '');
   final TextEditingController _penulisController =
@@ -32,6 +63,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
   late bool isFiksi;
   late bool isThriller;
   late bool isMisteri;
+  late String mediaPath;
 
   @override
   void initState() {
@@ -40,7 +72,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
     _judulController.text = widget.rangkuman?.judul ?? '';
     _penulisController.text = widget.rangkuman?.penulis ?? '';
     _penulisController.text = widget.rangkuman?.penulis ?? '';
-
+    mediaPath = widget.rangkuman?.mediaPath ?? '';
     isHorror = widget.rangkuman?.horror ?? false;
     isPetualangan = widget.rangkuman?.petualangan ?? false;
     isPengembanganDiri = widget.rangkuman?.pengembanganDiri ?? false;
@@ -300,8 +332,42 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                 height: 20,
               ),
               ElevatedButton(
-                onPressed: () {},
-                child: Padding(
+                onPressed: () => showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            side: BorderSide(
+                              color: blackColor,
+                              width: 3,
+                            ),
+                          ),
+                          title: Text(
+                            "Pilih gambar",
+                            style: semiBlackBoldTextStyle,
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                pickImage(ImageSource.gallery);
+                              },
+                              child: Text(
+                                "Galeri",
+                                style: mediumBlackTextSTyle.copyWith(),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                pickImage(ImageSource.camera);
+                              },
+                              child: Text(
+                                "Kamera",
+                                style: mediumBlackTextSTyle.copyWith(),
+                              ),
+                            ),
+                          ],
+                        )),
+                child: Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 10,
                     vertical: 10,
@@ -314,7 +380,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                       ),
                       Spacer(),
                       Icon(
-                        Icons.camera_alt_rounded,
+                        Icons.camera,
                         color: greyColor,
                       ),
                     ],
@@ -334,9 +400,30 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
+              image != null
+                  ? Column(
+                      children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          decoration:
+                              BoxDecoration(border: Border.all(width: 2)),
+                          child: Image.file(
+                            image!,
+                            width: 100,
+                            height: 100,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    )
+                  : SizedBox(
+                      height: 20,
+                    ),
               SizedBox(
                 // height: 300,
                 child: TextFormField(
@@ -458,7 +545,10 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
                     ),
                   ),
                 ),
-              )
+              ),
+              SizedBox(
+                height: 30,
+              ),
             ],
           ),
         ),
@@ -493,7 +583,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
         fiksi: isFiksi,
         thriller: isThriller,
         misteri: isMisteri,
-        mediaPath: "" // masih tahap pengerjaan
+        mediaPath: mediaPath // masih tahap pengerjaan
         );
 
     await RangkumanDatabase.instance.updateRangkuman(rangkuman);
@@ -513,7 +603,7 @@ class _TambahRangkumanState extends State<TambahRangkuman> {
       fiksi: isFiksi,
       thriller: isThriller,
       misteri: isMisteri,
-      mediaPath: "",
+      mediaPath: mediaPath,
     );
 
     await RangkumanDatabase.instance.createRangkuman(rangkuman);
