@@ -105,6 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 30,
                   ),
                   TextFormField(
+                    obscureText: true,
                     style: TextStyle(
                       color: greyColor,
                     ),

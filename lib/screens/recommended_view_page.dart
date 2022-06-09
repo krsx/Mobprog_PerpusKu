@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobprog_perpusku/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../providers/book_collection_providers.dart';
 
@@ -84,6 +85,9 @@ class _RecomendationViewPageState extends State<RecomendationViewPage> {
                                               .smallThumbnail ??
                                           'https://picsum.photos/200/300'))),
                             ),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Text(
                               _bookColProvider.bookCol?.items[widget.index]
                                       .volumeInfo.title ??
@@ -126,14 +130,10 @@ class _RecomendationViewPageState extends State<RecomendationViewPage> {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  // final url = Uri.parse(_bookColProvider.bookCol
-                  //         ?.items[widget.index].volumeInfo.previewLink ??
-                  //     '');
-                  final url = Uri.parse(
-                      "http://books.google.co.id/books?id=ocs3EAAAQBAJ&pg=PP1&dq=%27%27&hl=&cd=1&source=gbs_api");
-                  if (await canLaunchUrl(url)) {
-                    await launchUrl(url);
-                  }
+                  final url = Uri.parse(_bookColProvider.bookCol
+                          ?.items[widget.index].volumeInfo.previewLink ??
+                      '');
+                  await openUrl(url.toString());
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(
@@ -166,4 +166,9 @@ class _RecomendationViewPageState extends State<RecomendationViewPage> {
       ),
     );
   }
+}
+
+Future<void> openUrl(String url,
+    {bool forceWebview = false, bool enableJavaScript = false}) async {
+  await launchUrlString(url);
 }
