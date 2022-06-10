@@ -32,6 +32,48 @@ class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
+      // appBar: AppBar(
+      //   iconTheme: IconThemeData(color: blackColor),
+      //   backgroundColor: whiteColor,
+      //   elevation: 0,
+      //   title: Row(
+      //     children: [
+      //       SizedBox(
+      //         width: 8,
+      //       ),
+      //       RichText(
+      //         text: TextSpan(
+      //           children: [
+      //             TextSpan(
+      //               text: "Perpus",
+      //               style: semiBlackBoldTextStyle.copyWith(
+      //                 fontSize: 24,
+      //               ),
+      //             ),
+      //             TextSpan(
+      //               text: "Ku",
+      //               style: semiBlackBoldTextStyle.copyWith(
+      //                 fontSize: 24,
+      //                 color: blueColor,
+      //               ),
+      //             ),
+      //           ],
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ),
+      endDrawer: Drawer(
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            DrawerHeader(
+              child: Text('Ini header'),
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: paddingHorizontal,
@@ -46,28 +88,28 @@ class _FavoritePageState extends State<FavoritePage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 30,
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: "Perpus",
-                              style: semiBlackBoldTextStyle.copyWith(
-                                fontSize: 24,
-                              ),
-                            ),
-                            TextSpan(
-                              text: "Ku",
-                              style: semiBlackBoldTextStyle.copyWith(
-                                fontSize: 24,
-                                color: blueColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      // SizedBox(
+                      //   height: 30,
+                      // ),
+                      // RichText(
+                      //   text: TextSpan(
+                      //     children: [
+                      //       TextSpan(
+                      //         text: "Perpus",
+                      //         style: semiBlackBoldTextStyle.copyWith(
+                      //           fontSize: 24,
+                      //         ),
+                      //       ),
+                      //       TextSpan(
+                      //         text: "Ku",
+                      //         style: semiBlackBoldTextStyle.copyWith(
+                      //           fontSize: 24,
+                      //           color: blueColor,
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 30,
                       ),
@@ -92,28 +134,28 @@ class _FavoritePageState extends State<FavoritePage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 30,
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: "Perpus",
-                              style: semiBlackBoldTextStyle.copyWith(
-                                fontSize: 24,
-                              ),
-                            ),
-                            TextSpan(
-                              text: "Ku",
-                              style: semiBlackBoldTextStyle.copyWith(
-                                fontSize: 24,
-                                color: blueColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      // SizedBox(
+                      //   height: 30,
+                      // ),
+                      // RichText(
+                      //   text: TextSpan(
+                      //     children: [
+                      //       TextSpan(
+                      //         text: "Perpus",
+                      //         style: semiBlackBoldTextStyle.copyWith(
+                      //           fontSize: 24,
+                      //         ),
+                      //       ),
+                      //       TextSpan(
+                      //         text: "Ku",
+                      //         style: semiBlackBoldTextStyle.copyWith(
+                      //           fontSize: 24,
+                      //           color: blueColor,
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 30,
                       ),

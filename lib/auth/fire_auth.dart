@@ -1,6 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+String? tempErrEmail, tempErrPass;
+String? tempRegisterErrEmail, tempRegisterErrPass;
+String? dataEmail;
+
 class FireAuth {
   static Future<User?> registerUsingEmailPassword({
     required String name,
@@ -8,6 +12,7 @@ class FireAuth {
     required String password,
   }) async {
     FirebaseAuth auth = FirebaseAuth.instance;
+
     User? user;
     try {
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
@@ -21,8 +26,10 @@ class FireAuth {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
+        tempRegisterErrPass = "The password provided is too weak.";
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
+        tempRegisterErrEmail = "The account already exists for that email.";
       }
     } catch (e) {
       print(e);
@@ -44,11 +51,14 @@ class FireAuth {
         password: password,
       );
       user = userCredential.user;
+      dataEmail = user?.email;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
+        tempErrEmail = 'No user found for that email.';
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided.');
+        tempErrPass = 'Wrong password provided.';
       }
     }
 
@@ -63,6 +73,13 @@ class FireAuth {
 
     return refreshedUser;
   }
+
+  static Future<void> signOut() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    auth.signOut();
+  }
+
+  static Future<String?> getDataUser() async => dataEmail;
 }
 
 class Validator {
@@ -88,6 +105,13 @@ class Validator {
       return 'Email tidak boleh kosong';
     } else if (!emailRegExp.hasMatch(email)) {
       return 'Masukkan email yang benar';
+    } else if (tempErrEmail == "No user found for that email.") {
+      tempErrEmail = '';
+      return "EmaiL user tidak terdaftar";
+    } else if (tempRegisterErrEmail ==
+        "The account already exists for that email.") {
+      tempRegisterErrEmail = '';
+      return "Akun telah terdaftar";
     }
 
     return null;
@@ -101,6 +125,12 @@ class Validator {
       return 'Password tidak boleh kosong';
     } else if (password.length < 6) {
       return 'Panjang password minimal 6 karakter';
+    } else if (tempErrPass == "Wrong password provided.") {
+      tempErrPass = '';
+      return 'Password salah';
+    } else if (tempRegisterErrEmail == "The password provided is too weak.") {
+      tempRegisterErrEmail = '';
+      return 'Password lemah';
     }
 
     return null;

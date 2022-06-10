@@ -33,6 +33,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: paddingHorizontal,
@@ -41,30 +42,30 @@ class _SearchPageState extends State<SearchPage> {
         child: ListView(
           physics: BouncingScrollPhysics(),
           children: [
+            // SizedBox(
+            //   height: 30,
+            // ),
+            // RichText(
+            //   text: TextSpan(
+            //     children: [
+            //       TextSpan(
+            //         text: "Perpus",
+            //         style: semiBlackBoldTextStyle.copyWith(
+            //           fontSize: 24,
+            //         ),
+            //       ),
+            //       TextSpan(
+            //         text: "Ku",
+            //         style: semiBlackBoldTextStyle.copyWith(
+            //           fontSize: 24,
+            //           color: blueColor,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             SizedBox(
               height: 30,
-            ),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: "Perpus",
-                    style: semiBlackBoldTextStyle.copyWith(
-                      fontSize: 24,
-                    ),
-                  ),
-                  TextSpan(
-                    text: "Ku",
-                    style: semiBlackBoldTextStyle.copyWith(
-                      fontSize: 24,
-                      color: blueColor,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 20,
             ),
             Text(
               "Pencarianmu",

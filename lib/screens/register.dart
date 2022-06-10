@@ -18,6 +18,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _confirmPassController =
       TextEditingController(text: '');
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,6 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Form(
+              key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -98,6 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 30,
                   ),
                   TextFormField(
+                    obscureText: true,
                     style: TextStyle(
                       color: greyColor,
                     ),
@@ -130,6 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 30,
                   ),
                   TextFormField(
+                    obscureText: true,
                     style: TextStyle(
                       color: greyColor,
                     ),
@@ -175,7 +180,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         email: _emailController.text,
                         password: _passController.text,
                       );
-                      if (user != null) {
+                      if (_formKey.currentState!.validate() && user != null) {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (context) => RoutePage()),
                         );

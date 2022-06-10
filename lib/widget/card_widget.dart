@@ -162,7 +162,7 @@ class _RangkumanCardState extends State<RangkumanCard> {
                         //   ],
                         // )
                         ConstrainedBox(
-                          constraints: BoxConstraints(maxWidth: 200),
+                          constraints: BoxConstraints(maxWidth: 160),
                           child: Wrap(
                             runSpacing: 5,
                             spacing: 2,

@@ -26,6 +26,7 @@ class _RecomendationPageState extends State<RecomendationPage> {
     final _bookColProvider = Provider.of<BookCollectionProvider>(context);
     return SafeArea(
       child: Scaffold(
+        backgroundColor: whiteColor,
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: paddingHorizontal,
@@ -34,30 +35,30 @@ class _RecomendationPageState extends State<RecomendationPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // SizedBox(
+              //   height: 30,
+              // ),
+              // RichText(
+              //   text: TextSpan(
+              //     children: [
+              //       TextSpan(
+              //         text: "Perpus",
+              //         style: semiBlackBoldTextStyle.copyWith(
+              //           fontSize: 24,
+              //         ),
+              //       ),
+              //       TextSpan(
+              //         text: "Ku",
+              //         style: semiBlackBoldTextStyle.copyWith(
+              //           fontSize: 24,
+              //           color: blueColor,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               SizedBox(
                 height: 30,
-              ),
-              RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Perpus",
-                      style: semiBlackBoldTextStyle.copyWith(
-                        fontSize: 24,
-                      ),
-                    ),
-                    TextSpan(
-                      text: "Ku",
-                      style: semiBlackBoldTextStyle.copyWith(
-                        fontSize: 24,
-                        color: blueColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20,
               ),
               Text(
                 "Rekomendasimu",
