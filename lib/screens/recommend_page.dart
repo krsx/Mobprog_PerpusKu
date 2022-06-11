@@ -74,7 +74,7 @@ class _RecomendationPageState extends State<RecomendationPage> {
                   : Expanded(
                       child: ListView.builder(
                         physics: BouncingScrollPhysics(),
-                        itemCount: 10,
+                        itemCount: 5,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 10),

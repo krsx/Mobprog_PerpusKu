@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobprog_perpusku">
    <application
-        android:label="mobprog_perpusku"
+        android:label="PerpusKu"
         android:name="${applicationName}"
       
         android:networkSecurityConfig="@xml/network_security_config"
